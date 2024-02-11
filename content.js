@@ -50,7 +50,7 @@
             logoIcon.style.width = "1.35rem"
             logoBg.appendChild(logoIcon)
 
-            title = document.querySelector("#title.style-scope.ytd-watch-metadata")
+            const title = document.querySelector("#title.style-scope.ytd-watch-metadata")
             title.appendChild(container)
         }
     }
