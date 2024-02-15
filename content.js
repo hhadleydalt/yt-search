@@ -16,8 +16,27 @@
 
         if (!promptExists) { 
 
+            let searchIcon
+
             const title = document.querySelector("#title.style-scope.ytd-watch-metadata")
             const titleColor = window.getComputedStyle(title).getPropertyValue('color');
+
+            let total = 0
+            const arr = titleColor.split(",")
+
+            arr.forEach((str) => {
+                str = str.replace(/\D/g,'')
+                total += parseInt(str)
+            })
+
+            total /= 3
+            
+            if (total < 128) {
+                searchIcon = "images/magnifying-glass.png"
+            } else {
+                searchIcon = "images/magnifying-glass-black.png"
+            }
+
 
             const container = document.createElement("div")
             container.className = "style-scope ytd-watch-metadata prompt"
@@ -50,7 +69,7 @@
             container.appendChild(prompt)
 
             const logoIcon = document.createElement("img")
-            logoIcon.src = chrome.runtime.getURL("images/magnifying-glass.png")
+            logoIcon.src = chrome.runtime.getURL(searchIcon)
             logoIcon.style.width = "1.35rem"
             logoBg.appendChild(logoIcon)
 
